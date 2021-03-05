@@ -1,5 +1,19 @@
 # @backstage/plugin-techdocs
 
+## 0.6.1
+
+### Patch Changes
+
+- aa095e469: OpenStack Swift publisher added for tech-docs.
+- 2089de76b: Make use of the new core `ItemCardGrid` and `ItemCardHeader` instead of the deprecated `ItemCard`.
+- Updated dependencies [aa095e469]
+- Updated dependencies [2089de76b]
+- Updated dependencies [bc46435f5]
+- Updated dependencies [a501128db]
+  - @backstage/techdocs-common@0.4.4
+  - @backstage/core@0.7.1
+  - @backstage/theme@0.2.4
+
 ## 0.6.0
 
 ### Minor Changes

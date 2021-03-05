@@ -1,5 +1,11 @@
 # @backstage/plugin-scaffolder-backend
 
+## 0.9.1
+
+### Patch Changes
+
+- c532c1682: Fixes task failures caused by undefined step input
+
 ## 0.9.0
 
 ### Minor Changes

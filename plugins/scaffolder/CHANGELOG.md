@@ -1,5 +1,14 @@
 # @backstage/plugin-scaffolder
 
+## 0.7.1
+
+### Patch Changes
+
+- 2089de76b: Make use of the new core `ItemCardGrid` and `ItemCardHeader` instead of the deprecated `ItemCard`.
+- Updated dependencies [2089de76b]
+  - @backstage/core@0.7.1
+  - @backstage/theme@0.2.4
+
 ## 0.7.0
 
 ### Minor Changes
