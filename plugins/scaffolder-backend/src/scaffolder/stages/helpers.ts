@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-import { posix as posixPath } from 'path';
-import {
-  TemplateEntityV1alpha1,
-  LOCATION_ANNOTATION,
-} from '@backstage/catalog-model';
 import { InputError } from '@backstage/backend-common';
+import {
+  LOCATION_ANNOTATION,
+  parseLocationReference,
+  TemplateEntityV1alpha1,
+} from '@backstage/catalog-model';
+import { posix as posixPath } from 'path';
 
 export type ParsedLocationAnnotation = {
   protocol: 'file' | 'url';
@@ -37,22 +38,16 @@ export const parseLocationAnnotation = (
     );
   }
 
-  // split on the first colon for the protocol and the rest after the first split
-  // is the location.
-  const [protocol, location] = annotation.split(/:(.+)/) as [
-    ('file' | 'url')?,
-    string?,
-  ];
-
-  if (!protocol || !location) {
+  const { type, target } = parseLocationReference(annotation);
+  if (!type || !target) {
     throw new InputError(
-      `Failure to parse either protocol or location for entity: ${entity.metadata.name}`,
+      `Failure to parse either type or target for entity: ${entity.metadata.name}`,
     );
   }
 
   return {
-    protocol,
-    location,
+    protocol: type as 'file' | 'url',
+    location: target,
   };
 };
 
